@@ -1,0 +1,13 @@
+ASCII Table
+a-z -> 97-122
+A-Z -> 65-90
+SPACE -> 32
+0-9 -> 48-57
+SYMBOLS -> 33-47
+List: https://www.cs.cmu.edu/~pattis/15-1XX/common/handouts/ascii.html
+
+to convert lower -> upper
+char - 32
+
+to convert upper -> lower
+char + 32
