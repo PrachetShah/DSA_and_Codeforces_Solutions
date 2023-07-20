@@ -1,13 +1,4 @@
-4A
-50A
-71A
-112A
-231A
-158A
-282A
 263A -> Define 2D Vector
-339A
 281A -> ASCII Understanding
-236A
-96A
 160A -> Sorting Vector in Descending
+318A -> Tricky Sum, maths about sequence
