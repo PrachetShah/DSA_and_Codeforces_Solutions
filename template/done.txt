@@ -2,3 +2,5 @@
 281A -> ASCII Understanding
 160A -> Sorting Vector in Descending
 318A -> Tricky Sum, maths about sequence
+208A -> String Manipulation
+337A -> Tricky Maths
