@@ -6,3 +6,4 @@
 337A -> Tricky Maths
 451A -> Did not Understand, tough logic
 1475A -> VERY TRICKY QUESTION, uses BIT Manipulation to solve odd divisor
+1343A -> DIFFICULT because of bits of binary used in GP Series
