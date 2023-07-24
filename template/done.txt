@@ -9,3 +9,4 @@
 1343A -> DIFFICULT because of bits of binary used in GP Series
 1845B -> GRID Sum, New Logic using Maths
 460A -> Good Maths
+1336B -> Good Question
