@@ -10,7 +10,6 @@ int main(){
     for(int i=0; i<t; i++){
         cin >> words[i];
     }
-
     for(int i=0; i<words.size(); i++){
         int n = words[i].length();
         if(n > 10){
