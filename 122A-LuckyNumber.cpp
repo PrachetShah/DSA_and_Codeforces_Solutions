@@ -18,7 +18,6 @@ int main(){
             break;
         }
     }
-
     if(flag){
         cout << "NO" << endl;
     }
