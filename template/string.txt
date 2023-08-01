@@ -16,3 +16,5 @@ string.substr(pos, numoflett)
 for eg: string s = "abc"
 s.substr(1, 2) -> "bc"
 s.substr(0, 3) -> "abc"
+
+string.erase(string.begin()+i)
