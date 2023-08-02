@@ -3,43 +3,44 @@
 
 using namespace std;
 
-#define ll long long
-
 int main(){
-    ll t;
+    int t;
     cin >> t;
 
     while(t--){
-        ll n,m;
+        int n,m;
         cin >> n >> m;
-        string s;
-        cin >> s;
+        string binary;
+        cin >> binary;
 
-        vector<ll> lf(n), rg(n);
-        lf[0] = -1;
-        for (ll i = 0; i < n; ++i) {
-            if (i > 0) lf[i] = lf[i - 1];
-            if (s[i] == '0') lf[i] = i;
-        }
-        rg[n - 1] = n;
-        for (ll i = n - 1; i >= 0; --i) {
-            if (i + 1 < n) rg[i] = rg[i + 1];
-            if (s[i] == '1') rg[i] = i;
-        }
-        
-        set<pair<ll, ll>> st;
-        for (ll i = 0; i < m; ++i) {
-            ll l, r;
-            cin >> l >> r;
-            ll left = rg[l - 1], rr = lf[r - 1];
-            if (left > rr) {
-                st.insert({-1, -1});
-            } else {
-                st.insert({left, rr});
+        int low, high;
+        int ans = 0;
+        unordered_set<string> store;
+        for(int i=0; i<m; i++){
+            cin >> low >> high;
+            // cout << binary << " " << low << " " << high << endl;
+            string temp = binary;
+            while(temp[low]=='0'){
+                if(low >= high){
+                    break;
+                }
+                low++;
             }
+            while(temp[high]=='1'){
+                if(high <= low){
+                    break;
+                }
+                high--;
+            }
+            sort(temp.begin()+low-1, temp.begin()+high);
+            if(store.find(temp) == store.end()){
+                store.insert(temp);
+                ans++;
+            }
+
+            // cout << "STRING at " << i << " : " << temp << endl; 
         }
-        
-        cout << st.size() << endl;
+        cout << ans << endl;
     }
 
     return 0;
