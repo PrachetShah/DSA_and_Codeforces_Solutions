@@ -12,6 +12,5 @@ int main(){
     }else{
         cout << req-n << endl;
     }
-
     return 0;
 }
