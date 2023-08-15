@@ -31,7 +31,6 @@ int main(){
 				minindex=i;
 			}
 		}
-		
 	
 	}
 	cout<<++minindex<<endl; 
