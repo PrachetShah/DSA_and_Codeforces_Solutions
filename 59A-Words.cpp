@@ -20,8 +20,6 @@ int main(){
         }
     }
 
-    // cout << s << endl;
-
     if(cntUpper > cntLower){
         for(int i=0; i<lower.size(); i++){
             s[lower[i]] = s[lower[i]] - 32;
