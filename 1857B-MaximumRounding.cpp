@@ -9,7 +9,6 @@ int main(){
     while(t--){
         string s;
         cin>>s;
-        
         s='0'+s;
         int p=s.size();
         
@@ -19,7 +18,6 @@ int main(){
                 p=i;
             }
         }
-
         for(int i=(s[0]=='0'); i<s.size(); i++){
             cout << (i>=p ? '0' : s[i]);
         }
