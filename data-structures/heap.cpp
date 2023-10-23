@@ -11,6 +11,7 @@ class Heap{
             size = 0;
         }
 
+        // O(log n) -> Time to Insert
         void insert(int val){
             size++;
             int index = size;
