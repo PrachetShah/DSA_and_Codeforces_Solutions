@@ -155,7 +155,7 @@ int main(){
         cout << list[i] << " ";
     }
 
-    // Priority Queue
+    // Priority Queue, .top, .pop, .empty, .push
     // MaxHeap
     priority_queue<int> maxHeap;
 
