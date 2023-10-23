@@ -54,13 +54,9 @@ class Heap{
                     swap(arr[i], arr[rightIndex]);
                     i = rightIndex;
                 }else{
-                    // cout << "Updated Heap: ";
-                    // this->print();
                     return;
                 }
             }
-            // cout << "Updated Heap: ";
-            // this->print();
         }
 
         void print(){
@@ -70,6 +66,26 @@ class Heap{
             cout << "\n";
         }
 };
+
+void heapify(int arr[], int n, int i){
+    int largest = i;
+    int left = 2*i;
+    int right = 2*i+1;
+
+    if(left<n && arr[largest] < arr[left]){
+        largest = left;
+    }
+
+    if(right<n && arr[largest] < arr[right]){
+        largest = right;
+    }
+
+    // check if largest for changed or not
+    if(largest != i){
+        swap(arr[largest], arr[i]);
+        heapify(arr, n, largest);
+    }
+}
 
 int main(){
     ios_base::sync_with_stdio(false);
@@ -84,12 +100,18 @@ int main(){
     h.print();
 
     h.deleteRoot();
-    h.deleteRoot();
-    h.deleteRoot();
-    h.deleteRoot();
-    h.deleteRoot();
     h.print();
     
+    // Heapify the Array
+    int arr[6] = {-1, 54, 53, 55, 52, 50};
+    int n = 5;
+    for(int i=n/2; i>0; i--){
+        heapify(arr, n, i);
+    }
+    cout << "Printing the Array: ";
+    for(int i=1; i<=n; i++){
+        cout << arr[i] << " ";
+    }
 
     return 0;
 }
