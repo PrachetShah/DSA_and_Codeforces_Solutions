@@ -154,5 +154,12 @@ int main(){
     for(int i=1; i<list.size(); i++){
         cout << list[i] << " ";
     }
+
+    // Priority Queue
+    // MaxHeap
+    priority_queue<int> maxHeap;
+
+    // MinHeap
+    priority_queue<int, vector<int>, greater<int>> minHeap;
     return 0;
 }
