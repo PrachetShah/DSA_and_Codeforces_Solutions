@@ -27,6 +27,7 @@ class Heap{
             }
         }
 
+        // O(log n) -> Time to Delete
         void deleteRoot(){
             if(size == 0){
                 cout << "Nothing to Delete\n";
