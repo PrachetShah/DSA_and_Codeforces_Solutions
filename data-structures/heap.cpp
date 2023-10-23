@@ -27,6 +27,34 @@ class Heap{
             }
         }
 
+        void deleteRoot(){
+            if(size == 0){
+                cout << "Nothing to Delete\n";
+                return;
+            }
+
+            // Change last element as first in heap and delete the last element
+            arr[1] = arr[size];
+            size--;
+            
+            // Take Node to its correct position or perform "propagation"
+            int i = 1;
+            while(i < size){
+                int leftIndex = 2*i;
+                int rightIndex = 2*i + 1;
+
+                if(leftIndex < size && arr[i] < arr[leftIndex]){
+                    swap(arr[i], arr[leftIndex]);
+                    i = leftIndex;
+                }else if(rightIndex < size && arr[i] < arr[rightIndex]){
+                    swap(arr[i], arr[rightIndex]);
+                    i = rightIndex;
+                }else{
+                    return;
+                }
+            }
+        }
+
         void print(){
             for(int i=1; i<=size; i++){
                 cout << arr[i] << " ";
