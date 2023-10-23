@@ -33,6 +33,9 @@ class Heap{
                 return;
             }
 
+            int deleted = arr[1];
+            cout << "Deleted Node with Value: " << deleted << "\n";
+
             // Change last element as first in heap and delete the last element
             arr[1] = arr[size];
             size--;
@@ -50,9 +53,13 @@ class Heap{
                     swap(arr[i], arr[rightIndex]);
                     i = rightIndex;
                 }else{
+                    // cout << "Updated Heap: ";
+                    // this->print();
                     return;
                 }
             }
+            // cout << "Updated Heap: ";
+            // this->print();
         }
 
         void print(){
@@ -73,7 +80,13 @@ int main(){
     h.insert(53);
     h.insert(52);
     h.insert(54);
+    h.print();
 
+    h.deleteRoot();
+    h.deleteRoot();
+    h.deleteRoot();
+    h.deleteRoot();
+    h.deleteRoot();
     h.print();
     
 
