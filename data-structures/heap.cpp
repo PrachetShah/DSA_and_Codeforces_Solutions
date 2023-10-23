@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// FOLLOWS 1-based indexing
 class Heap{
     public:
         int arr[100];
@@ -67,6 +68,7 @@ class Heap{
         }
 };
 
+// Works in O(n*logn) => n->loop caled in main, logn for loop called in function
 void maxHeapify(int arr[], int n, int i){
     int largest = i;
     int left = 2*i;
@@ -87,23 +89,29 @@ void maxHeapify(int arr[], int n, int i){
     }
 }
 
-void minHeapify(int arr[], int n, int i){
-    int largest = i;
+void minHeapify(vector<int> &arr, int n, int i){
+    int smallest = i;
     int left = 2*i;
     int right = 2*i+1;
 
-    if(left<n && arr[largest] < arr[left]){
-        largest = left;
+    if(left<n && arr[smallest] > arr[left]){
+        smallest = left;
     }
 
-    if(right<n && arr[largest] < arr[right]){
-        largest = right;
+    if(right<n && arr[smallest] > arr[right]){
+        smallest = right;
     }
 
-    // check if largest for changed or not
-    if(largest != i){
-        swap(arr[largest], arr[i]);
-        maxHeapify(arr, n, largest);
+    // check if smallest for changed or not
+    if(smallest != i){
+        swap(arr[smallest], arr[i]);
+        minHeapify(arr, n, smallest);
+    }
+}
+
+void printArr(int arr[], int n){
+    for(int i=1; i<=n; i++){
+        cout << arr[i] << " ";
     }
 }
 
@@ -122,27 +130,29 @@ int main(){
     h.deleteRoot();
     h.print();
     
+    int input[6] = {-1, 54, 53, 55, 52, 50};
+    cout << "\nGiven Array for Heapify is: ";
+    for(int i=1; i<6; i++){
+        cout << input[i] << " ";
+    }cout << endl;
+
     // Max Heapify the Array
     int arr[6] = {-1, 54, 53, 55, 52, 50};
     int n = 5;
     for(int i=n/2; i>0; i--){
         maxHeapify(arr, n, i);
     }
-    cout << "Printing the Array: ";
-    for(int i=1; i<=n; i++){
-        cout << arr[i] << " ";
-    }
+    cout << "\nCreating Max Heap\nPrinting the MaxHeap: ";
+    printArr(arr, n);
 
     // Min Heapify the Array
-    int arr[6] = {-1, 54, 53, 55, 52, 50};
-    int n = 5;
-    for(int i=n/2; i>0; i--){
-        minHeapify(arr, n, i);
+    vector<int> list = {-1, 54, 53, 55, 52, 50};
+    for(int i=list.size()/2; i>0; i--){
+        minHeapify(list, list.size(), i);
     }
-    cout << "Printing the Array: ";
-    for(int i=1; i<=n; i++){
-        cout << arr[i] << " ";
+    cout << "\n\nCreating Min Heap\nPrinting the MinHeap: ";
+    for(int i=1; i<list.size(); i++){
+        cout << list[i] << " ";
     }
-
     return 0;
 }
