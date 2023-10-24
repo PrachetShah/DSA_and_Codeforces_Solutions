@@ -2,9 +2,13 @@
 using namespace std;
 
 /*
+Yaha Smallest ele pucha tha isliye MAXHEAP se nikal diya
+agar largest element puchte toh MINHEAP se nikal jaata
+
 Approach 1: Sort and return arr[k-1] -> O(nlogn)
 
-Apprach 2: Using Heaps
+Apprach 2: Using Heaps -> O(n-k + klogn) = O(klogn)
+SC: O(k)
 
 Step1: Store first k elements in Max Heap
 Step 2: for remaining elemenst
