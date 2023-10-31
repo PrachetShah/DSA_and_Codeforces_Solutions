@@ -2,7 +2,6 @@
 using namespace std;
 
 #define ll long long
-
 int main() {
 	// your code goes here
 	int n,q;
