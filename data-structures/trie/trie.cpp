@@ -64,6 +64,34 @@ class Trie{
         return searchUtil(child, word.substr(1));
     }
 
+    void deleteUtil(TrieNode* root, string word){
+        // base
+        if(word.length() == 0){
+            root->isTerminal = false;
+            cout << "Word Deleted" << endl;
+            return;
+        }
+
+        int index = word[0]-'a';
+        TrieNode* child;
+
+        if(root->children[index] != NULL){
+            // present
+            child = root->children[index];
+        }else{
+            cout << "Word not present in Trie\n";
+            return;
+        }
+        deleteUtil(child, word.substr(1));
+    }
+
+    bool isEmpty(TrieNode* root){
+        for (int i = 0; i <26; i++)
+            if (root->children[i])
+                return false;
+        return true;
+    }
+
     public:
     TrieNode* root;
 
@@ -79,6 +107,10 @@ class Trie{
     // O(L)
     bool searchWord(string word){
         return searchUtil(root, word);
+    }
+
+    void deleteWord(string word){
+        deleteUtil(root, word);
     }
 };
 
@@ -96,5 +128,10 @@ int main(){
     cout << "abcd: " << t->searchWord("abcd") << endl;
     cout << "abcde: " << t->searchWord("abcde") << endl;
     cout << "abcdde: " << t->searchWord("abcdde") << endl;
+
+    t->deleteWord("abcd");
+    cout << "abcd: " << t->searchWord("abcd") << endl;
+
+    t->deleteWord("acd");
     return 0;
 }
