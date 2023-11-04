@@ -71,10 +71,12 @@ class Trie{
         root = new TrieNode('\0');
     }
 
+    // O(Length of Word)
     void insertWord(string word){
         insertUtil(root, word);
     }
 
+    // O(L)
     bool searchWord(string word){
         return searchUtil(root, word);
     }
