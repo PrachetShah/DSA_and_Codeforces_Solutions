@@ -49,8 +49,7 @@ bool solve(vector<vector<int>> &board){
 
 }
 
-void solveSudoku(vector<vector<int>>& sudoku)
-{
+void solveSudoku(vector<vector<int>>& sudoku){
 	// Write your code here
     // No need to print the final sudoku
     // Just fill the values in the given matrix
