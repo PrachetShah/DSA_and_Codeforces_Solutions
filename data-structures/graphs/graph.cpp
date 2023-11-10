@@ -11,7 +11,7 @@ void printAdMatrix(vector<vector<int>> adjacencyMatrix){
     }
 }
 
-void createAdList(int nodes, map<int, vector<int>> &adjacencyList){
+void createAdList(map<int, vector<int>> &adjacencyList, int nodes){
     for(int i=0; i<nodes; i++){
         for(int j=0; j<nodes; j++){
             if(i==j)
@@ -54,7 +54,7 @@ int main(){
 
     // adjancency list
     map<int, vector<int>> adjacencyList;
-    createAdList(nodes, adjacencyList);
+    createAdList(adjacencyList, nodes);
     printAdList(adjacencyList);
     return 0;
 }
