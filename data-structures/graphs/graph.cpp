@@ -2,10 +2,33 @@
 
 using namespace std;
 
-void printMatrix(vector<vector<int>> adjacencyMatrix){
+void printAdMatrix(vector<vector<int>> adjacencyMatrix){
     for(int i=0; i<adjacencyMatrix.size(); i++){
         for(int j=0; j<adjacencyMatrix.size(); j++){
             cout << adjacencyMatrix[i][j] << " ";
+        }
+        cout << "\n";
+    }
+}
+
+void createAdList(int nodes, map<int, vector<int>> &adjacencyList){
+    for(int i=0; i<nodes; i++){
+        for(int j=0; j<nodes; j++){
+            if(i==j)
+                continue;
+            cout << "Edge " << i << "->" << j << "?";
+            int val;
+            cin >> val;
+            if(val) adjacencyList[i].push_back(j);
+        }
+    }
+}
+
+void printAdList(map<int, vector<int>> adjacencyList){
+    for(auto s: adjacencyList){
+        cout << s.first << ": ";
+        for(int i=0; i<s.second.size(); i++){
+            cout << s.second[i] << " ";
         }
         cout << "\n";
     }
@@ -16,6 +39,7 @@ int main(){
     cout << "Enter Nodes of Graph: ";
     cin >> nodes;
 
+    // adjacency matrix
     vector<vector<int>> adjacencyMatrix (nodes, vector<int> (nodes, 0));
 
     for(int i=0; i<nodes; i++){
@@ -26,7 +50,11 @@ int main(){
             cin >> adjacencyMatrix[i][j];
         }
     }
+    printAdMatrix(adjacencyMatrix);
 
-    printMatrix(adjacencyMatrix);
+    // adjancency list
+    map<int, vector<int>> adjacencyList;
+    createAdList(nodes, adjacencyList);
+    printAdList(adjacencyList);
     return 0;
 }
