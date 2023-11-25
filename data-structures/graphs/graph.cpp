@@ -105,10 +105,10 @@ int main(){
     createAdList(adjacencyList, nodes, edges);
     printAdList(adjacencyList);
 
-    // BFS Traversal
+    // BFS Traversal of Graph
     BFS(adjacencyList, 0);
     
-    // DFS Traversal
+    // DFS Traversal of Graph
     DFS(adjacencyList, 0);
     return 0;
 }
