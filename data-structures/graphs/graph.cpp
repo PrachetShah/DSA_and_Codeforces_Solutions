@@ -65,6 +65,29 @@ void BFS(map<int, vector<int>> AdList, int startNode){
     return;
 }
 
+void DFS(map<int, vector<int>> adList, int startNode){
+    map<int, bool> visited;
+    stack<int> s;
+    s.push(startNode);
+    visited[startNode] = 1;
+
+    cout << "DFS Traversal of Graph: ";
+    while(!s.empty()){
+        int node = s.top();
+        s.pop();
+        cout << node << " ";
+        
+        for(auto vertice: adList[node]){
+            if(!visited[vertice]){
+                s.push(vertice);
+                visited[vertice] = 1;
+            }
+        }
+
+    }
+    cout << "\n";
+}
+
 int main(){
     int nodes, edges;
     cout << "Enter Nodes of Graph: ";
@@ -84,5 +107,8 @@ int main(){
 
     // BFS Traversal
     BFS(adjacencyList, 0);
+    
+    // DFS Traversal
+    DFS(adjacencyList, 0);
     return 0;
 }
