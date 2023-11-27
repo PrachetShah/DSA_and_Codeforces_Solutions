@@ -88,6 +88,18 @@ void DFS(map<int, vector<int>> adList, int startNode){
     cout << "\n";
 }
 
+void DFSRecur(int V, map<int, bool> &visited, map<int, vector<int>> adjList){
+    visited[V] = true;
+    cout << V << " ";
+        
+    for(auto x: adjList[V]){
+        if(!visited[x]){
+            DFSRecur(x, visited, adjList);
+        }
+    }
+    cout << "\n";
+}
+
 
 bool isCyclicBFS(int src, unordered_map<int, bool> &visited, map<int, vector<int>> adj){
     unordered_map<int, int> parent;
@@ -150,8 +162,11 @@ int main(){
     
     // DFS Traversal of Graph
     DFS(adjacencyList, 0);
+    
+    // DFS Traversal of Graph Recursive
+    DFS(adjacencyList, 0);
 
-    // Cycle Detection in Undirected Graph using BFS
+    // Cycle Detection in Undirected Graph using BFS, in DFS, just replace queue with stack and its done
     cycleDetectBFS(nodes, adjacencyList);
     return 0;
 }
