@@ -88,11 +88,51 @@ void DFS(map<int, vector<int>> adList, int startNode){
     cout << "\n";
 }
 
+
+bool isCyclicBFS(int src, unordered_map<int, bool> &visited, map<int, vector<int>> adj){
+    unordered_map<int, int> parent;
+    visited[src] = 1;
+    parent[src] = -1;
+
+    queue<int> q;
+    q.push(src);
+
+    while(!q.empty()){
+        int node = q.front();
+        q.pop();
+
+        for(auto neighbour: adj[node]){
+            if(visited[neighbour] && neighbour!=parent[node]){
+                return true;
+            }else if(!visited[neighbour]){
+                q.push(neighbour);
+                visited[neighbour] = 1;
+                parent[neighbour] = node;
+            }
+        }
+    }
+    return false;
+}
+void cycleDetectBFS(int nodes, map<int, vector<int>> adj){
+    // Handling Disconnected Nodes
+    unordered_map<int, bool> visited;
+    for(int i=0; i<nodes; i++){
+        if(!visited[i]){
+            bool ans = isCyclicBFS(i, visited, adj);
+            if(ans){
+                cout << "Cycle Exists in Graph\n";
+                return;
+            }
+        }
+    }
+    cout << "Cyle Does not Exist in Graph\n";
+}
+
 int main(){
     int nodes, edges;
-    cout << "Enter Nodes of Graph: ";
+    cout << "Enter Number of Nodes: ";
     cin >> nodes;
-    cout << "Enter Nodes of Edges: ";
+    cout << "Enter Number of Edges: ";
     cin >> edges;
 
     // adjacency matrix
@@ -110,5 +150,8 @@ int main(){
     
     // DFS Traversal of Graph
     DFS(adjacencyList, 0);
+
+    // Cycle Detection in Undirected Graph using BFS
+    cycleDetectBFS(nodes, adjacencyList);
     return 0;
 }
