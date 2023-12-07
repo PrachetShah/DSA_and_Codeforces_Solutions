@@ -167,6 +167,7 @@ int main(){
     DFS(adjacencyList, 0);
 
     // Cycle Detection in Undirected Graph using BFS, in DFS, just replace queue with stack and its done
+    // FOR UNDIRECTED GRAPHS
     cycleDetectBFS(nodes, adjacencyList);
     return 0;
 }
