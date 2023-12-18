@@ -45,6 +45,7 @@ void printAdList(unordered_map<int, vector<pair<int, int>>> adjacencyList){
 }
 
 void print(vector<int> arr){
+    cout << "{ ";
     for(auto i: arr){
         if(i==INT_MAX){
             cout << "INF" << " ";
@@ -52,7 +53,7 @@ void print(vector<int> arr){
             cout << i << " ";
         }
     }
-    cout << "\n";
+    cout << "}\n";
 }
 
 void dfs(int node, unordered_map<int, vector<pair<int, int>>> adjacencyList, vector<bool> &visited, stack<int> &s){
@@ -108,5 +109,6 @@ int main(){
             }
         }
     }
+    cout << "Shortest Distance in DAG from Src: ";
     print(distance);
 }
