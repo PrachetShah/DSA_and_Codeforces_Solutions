@@ -97,5 +97,16 @@ int main(){
     // step1: topo sort and find linear stack ordering
     stack<int> linearOrdering = topologicalSortDFS(adjacencyList, nodes);
 
-    
+    // step2: update distance array and output shortest distances
+    vector<int> distance(nodes, INT_MAX);
+    int src = 1;
+    distance[src] = 0;
+    for(int i=0; i<nodes; i++){
+        if(distance[i] != INT_MAX){
+            for(auto neighbour: adjacencyList[i]){
+                distance[neighbour.first] = min(distance[neighbour.first], distance[i]+neighbour.second);
+            }
+        }
+    }
+    print(distance);
 }
