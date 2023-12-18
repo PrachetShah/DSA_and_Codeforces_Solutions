@@ -7,6 +7,9 @@ unordered_map<int, list<pair<int, int>>> adjList
 Algo:
 1. Topological Sort 
 2. After finding linear ordering, do distance array update
+
+Time Complexity: O(N+E)
+Space Complexity: O(N)
 */
 
 #include<bits/stdc++.h>
@@ -102,7 +105,7 @@ int main(){
     vector<int> distance(nodes, INT_MAX);
     int src = 1;
     distance[src] = 0;
-    
+
     // Traverse based on TOPO SORT Ordering
     while(!linearOrdering.empty()){
         int i = linearOrdering.top();
