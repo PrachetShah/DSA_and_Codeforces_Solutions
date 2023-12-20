@@ -17,6 +17,16 @@ Algo:
 
 Time Complexity: O(ElogV)
 Space Complexity: O(N)
+
+Applications of Dijkstra’s Algorithm:
+1. Google maps uses Dijkstra algorithm to show shortest distance between source and destination.
+2. In computer networking, Dijkstra’s algorithm forms the basis for various routing protocols, such as OSPF (Open Shortest Path First) 
+    and IS-IS (Intermediate System to Intermediate System).
+3. Transportation and traffic management systems use Dijkstra’s algorithm to optimize traffic flow, minimize congestion, and 
+    plan the most efficient routes for vehicles.
+4. Airlines use Dijkstra’s algorithm to plan flight paths that minimize fuel consumption, reduce travel time.
+5. Dijkstra’s algorithm is applied in electronic design automation for routing connections on integrated circuits and very-large-scale 
+    integration (VLSI) chips.
 */
 
 #include<bits/stdc++.h>
