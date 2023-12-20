@@ -78,7 +78,7 @@ void print(vector<int> arr){
     cout << "}\n";
 }
 
-void djisktraPQ(unordered_map<int, vector<pair<int, int>>> adjacencyList, vector<int> &distance, int src, int nodes){
+void dijsktraPQ(unordered_map<int, vector<pair<int, int>>> adjacencyList, vector<int> &distance, int src, int nodes){
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
     pq.push({0, src});
     distance[src] = 0;
@@ -100,7 +100,7 @@ void djisktraPQ(unordered_map<int, vector<pair<int, int>>> adjacencyList, vector
     }
 }
 
-void djisktraSet(unordered_map<int, vector<pair<int, int>>> adjacencyList, vector<int> &distance, int src, int nodes){
+void dijsktraSet(unordered_map<int, vector<pair<int, int>>> adjacencyList, vector<int> &distance, int src, int nodes){
     set<pair<int, int>> s;
     s.insert({0, src});
     distance[src] = 0;
@@ -142,13 +142,13 @@ int main(){
     vector<int> distance(nodes, INT_MAX);
 
     int src = 0;
-    djisktraPQ(adjacencyList, distance, src, nodes);
-    cout << "Shortest Distance using Djisktra's Algo with PQ from Src: ";
+    dijsktraPQ(adjacencyList, distance, src, nodes);
+    cout << "Shortest Distance using Dijsktra's Algo with PQ from Src: ";
     print(distance);
 
     vector<int> distance2(nodes, INT_MAX);
-    djisktraSet(adjacencyList, distance2, src, nodes);
-    cout << "Shortest Distance using Djisktra's Algo with Set from Src: ";
+    dijsktraSet(adjacencyList, distance2, src, nodes);
+    cout << "Shortest Distance using Dijsktra's Algo with Set from Src: ";
     print(distance2);
     
     return 0;
