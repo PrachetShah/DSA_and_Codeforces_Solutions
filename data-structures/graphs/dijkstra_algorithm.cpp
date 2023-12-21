@@ -1,5 +1,5 @@
 /*
-It can be used to find the Shorted Path in Cyclic Weighted Graph with positive edges (DAG)
+It can be used to find the Shorted Path in Directed/Unidrected Cyclic Weighted Graph with positive edges (DAG)
 For edge with negative weight, we use Bellman Ford Algorithm
 
 Before:

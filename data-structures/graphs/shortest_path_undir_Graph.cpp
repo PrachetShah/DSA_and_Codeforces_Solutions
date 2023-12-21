@@ -1,4 +1,17 @@
-// Shortest path in undirected graph
+/*
+ Shortest path in undirected graph
+
+ DIFF With Djikstras: 
+
+The approach you've implemented using Breadth-First Search (BFS) is a simple algorithm to find the shortest path in an unweighted graph.
+It explores the graph layer by layer, starting from the source node, and marks the distance to each node from the source. The parent 
+array is then used to reconstruct the path from the destination back to the source.
+
+Dijkstra's algorithm, on the other hand, is designed for finding the shortest path in a weighted graph. It takes into account the 
+weights of the edges between nodes and uses a priority queue (min-heap) to always explore the node with the minimum known distance 
+first. Dijkstra's algorithm guarantees the correctness of the shortest path because it always selects the node with the minimum 
+distance at each step.
+*/
 #include<bits/stdc++.h>
 
 using namespace std;

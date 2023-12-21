@@ -10,6 +10,24 @@ Algo:
 
 Time Complexity: O(N+E)
 Space Complexity: O(N)
+
+DIFF between this and Dijkstras
+Type of Graph:
+
+Dijkstra's Algorithm: Can be applied to both directed and undirected graphs with weighted edges.
+Topological Sorting with DFS: Specifically designed for directed acyclic graphs (DAGs).
+Edge Weights:
+
+Dijkstra's Algorithm: Considers the weights of the edges during the traversal.
+Topological Sorting with DFS: Ignores edge weights; it focuses on the structure of the graph.
+Data Structures:
+
+Dijkstra's Algorithm: Typically uses a priority queue (min-heap) to efficiently select the node with the minimum distance.
+Topological Sorting with DFS: Uses a stack to keep track of the order in which nodes finish processing.
+Time Complexity:
+
+Dijkstra's Algorithm: O((V + E) * log(V)), where V is the number of vertices and E is the number of edges.
+Topological Sorting with DFS: O(V + E), where V is the number of vertices and E is the number of edges.
 */
 
 #include<bits/stdc++.h>
