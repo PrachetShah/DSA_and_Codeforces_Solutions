@@ -7,6 +7,18 @@ Spanning Tree: https://www.geeksforgeeks.org/spanning-tree/
 Minimum Spanning Tree(MST):
 A minimum spanning tree (MST) is defined as a spanning tree that has the minimum weight among all the possible spanning trees.
 To find MST, we can make use of Prim's or Kruskal's Algorithm.
+
+Prim's Algorithm:
+1. Create Key, Parent, MST/Visited Data Structure
+2. Mark parent[src]=-1 and key[src]=0
+3. Write a For Loop which runs for number of nodes
+    i. Write for loop to Ffnd Mini Key Val node && MST[node]==false
+    ii. MST[node] = true
+    iii. For n: ADJACENT[node]
+        1) if key[n] < n.weigth
+            parent[n] = node
+            key[n] = n.weigth
+4. Print Parent Node which can be used to create the MST or return sum of MST
 */
 
 #include<bits/stdc++.h>
@@ -49,11 +61,7 @@ void printAdList(unordered_map<int, vector<pair<int, int>>> adjacencyList){
 void print(vector<int> arr){
     cout << "{ ";
     for(auto i: arr){
-        if(i==INT_MAX){
-            cout << "INF" << " ";
-        }else{
-            cout << i << " ";
-        }
+        cout << i << " ";
     }
     cout << "}\n";
 }
@@ -114,6 +122,8 @@ int main(){
 
     cout << "Parent Array is: ";
     print(parent);
+
+    cout << "Sum of MST: " << accumulate(key.begin(), key.end(), 0);
 
     return 0;
 }
