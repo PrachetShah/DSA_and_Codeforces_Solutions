@@ -1,7 +1,7 @@
 /*
- Shortest path in undirected graph
+Shortest path in undirected graph
 
- DIFF With Djikstras: 
+DIFF With Djikstras: 
 
 The approach you've implemented using Breadth-First Search (BFS) is a simple algorithm to find the shortest path in an unweighted graph.
 It explores the graph layer by layer, starting from the source node, and marks the distance to each node from the source. The parent 
