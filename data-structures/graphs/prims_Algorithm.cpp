@@ -19,6 +19,10 @@ Prim's Algorithm:
             parent[n] = node
             key[n] = n.weigth
 4. Print Parent Node which can be used to create the MST or return sum of MST
+
+TC: O(n^2), O(n)
+using MinHeap, we can find Min Ele in O(1)
+which will make TC: O(n) and Sc: O(nlogn)
 */
 
 #include<bits/stdc++.h>
