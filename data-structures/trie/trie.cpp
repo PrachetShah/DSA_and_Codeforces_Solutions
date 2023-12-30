@@ -23,6 +23,17 @@ Applications of tries
 1. Tries has an ability to insert, delete or search for the entries. Hence they are used in building dictionaries 
 such as entries for telephone numbers, English words.
 2. Tries are also used in spell-checking softwares.
+
+Time and Space Complexity
+
+Insertion: 
+TC: O(n)    SC: O(n*m)
+
+Search:
+TC: O(n)    SC: O(1)
+
+Delete:
+TC: O(n)    SC: O(n*m)
 */
 
 #include<bits/stdc++.h>
