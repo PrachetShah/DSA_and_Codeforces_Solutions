@@ -91,7 +91,7 @@ int main(){
     vector<bool> mst(nodes, false);
     int src = 0;
 
-    // Step1: Mark src node key and mst as 0 and true
+    // Step1: Mark src node key 0 and parent as -1
     key[src] = 0;
     parent[src] = -1;
 
