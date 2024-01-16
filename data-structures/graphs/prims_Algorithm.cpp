@@ -12,7 +12,7 @@ Prim's Algorithm:
 1. Create Key, Parent, MST/Visited Data Structure
 2. Mark parent[src]=-1 and key[src]=0
 3. Write a For Loop which runs for number of nodes
-    i. Write for loop to Ffnd Mini Key Val node && MST[node]==false
+    i. Write for loop to find Mini Key Val node && MST[node]==false
     ii. MST[node] = true
     iii. For n: ADJACENT[node]
         1) if key[n] < n.weigth
