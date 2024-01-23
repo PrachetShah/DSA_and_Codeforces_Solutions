@@ -40,6 +40,7 @@ void unionSet(int u, int v, vector<int> &parent, vector<int> &rank){
         parent[v] = u;
     }
     else{
+        // same rank
         parent[v] = u;
         rank[u]++;
     }
