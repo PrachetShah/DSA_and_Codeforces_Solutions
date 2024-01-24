@@ -8,6 +8,9 @@ Algorithm:
 
 To check Cycle:
  Use Union Find Method
+
+
+Uses Union Find and Path Compression to help achieve the task of finding cycle in graph
 */
 
 #include<bits/stdc++.h>
