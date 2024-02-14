@@ -50,7 +50,8 @@ void createAdList(unordered_map<int, vector<pair<int, int>>> &adjacencyList, int
 void createAdList(unordered_map<int, vector<pair<int, int>>> &adjacencyList, vector<vector<int>> edges){
     for(int i=0; i<edges.size(); i++){
         int node = edges[i][0];
-        int node2 = edges[i][1], dis = edges[i][2];
+        int node2 = edges[i][1];
+        int dis = edges[i][2];
         adjacencyList[node].push_back({node2, dis});
     }
 }
