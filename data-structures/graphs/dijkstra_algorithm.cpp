@@ -79,6 +79,7 @@ void print(vector<int> arr){
 }
 
 void dijsktraPQ(unordered_map<int, vector<pair<int, int>>> adjacencyList, vector<int> &distance, int src, int nodes){
+    // Min Heap, since we want to select node with smallest distance while traversing
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
     pq.push({0, src});
     distance[src] = 0;
