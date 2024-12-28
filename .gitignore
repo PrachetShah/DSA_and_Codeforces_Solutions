@@ -1,2 +1,5 @@
 /.vscode
 /hackerrank
+*.csv
+*.pdf
+*.txt
