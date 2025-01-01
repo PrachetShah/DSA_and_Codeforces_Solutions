@@ -48,10 +48,36 @@ def isIdentical(tree1, tree2):
         return False
     if tree1 != None and tree2 == None:
         return False
-    if tree1.val == tree2.val:
+    if tree1.data == tree2.data:
         return isIdentical(tree1.left, tree2.left) and isIdentical(tree1.right, tree2.right)
     else:
         return False
+
+def isSumTree(root:Node):
+
+    def helper(root:Node):
+        # none node -> isSumTree, 0(sum)
+        if root is None:
+            return True, 0
+        # leaf node -> isSumTree, data(sum)
+        if root.left==None and root.right==None:
+            return [True, root.data]
+        
+        isSumLeft, leftSum = helper(root.left)
+        isSumRight, rightSum = helper(root.right)
+        sum = leftSum + rightSum
+        
+        if isSumLeft and isSumRight and root.data == sum:
+            return [True, 2*root.data]
+        else:
+            return [False, -1]
+
+    val = helper(root)
+    if val[0]:
+        print("SUM TREE")
+    else:
+        print("NOT A SUM TREE")
+    
 
 if __name__ == "__main__":
     root = Node(1)
@@ -63,9 +89,9 @@ if __name__ == "__main__":
     root.right.left = Node(17)
     root.right.left.right = Node(6)
 
-    root2 = Node(1)
-    root2.left = Node(3)
-    root2.right = Node(5)
+    root2 = Node(5)
+    root2.left = Node(2)
+    root2.right = Node(3)
     # To make Tree Unbalanced
     # root.right.left.right.right = Node(102) 
     # root.right.left.right.right.right = Node(1020) 
@@ -84,3 +110,6 @@ if __name__ == "__main__":
         print("Trees are identical")
     else:
         print("Trees are not identical")
+
+    isSumTree(root)
+    isSumTree(root2)
