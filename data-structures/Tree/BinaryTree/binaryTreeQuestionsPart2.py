@@ -21,7 +21,7 @@ def zigZagTraversal(root):
         isEven = not isEven
         if len(nextDepth):
             queue.append(nextDepth)
-    print("Zig Zag Traversal:", ans)
+    print("Zig Zag Traversal:\t\t", ans)
 
 def verticalTraversal(root):
     map = defaultdict(list)
@@ -39,7 +39,7 @@ def verticalTraversal(root):
     print(sorted(map.items()))
     for key in sorted(map):
         traversal.extend(map[key])
-    print("Vertical Level Traversal:", traversal)
+    print("Vertical Level Traversal:\t", traversal)
 
 if __name__ == "__main__":
     root = Node(1)
