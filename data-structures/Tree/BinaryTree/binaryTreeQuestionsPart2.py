@@ -57,7 +57,7 @@ def boundaryTraversal(root):
     print("Boundary traversal: \t", end=" ")
     # traverse left
     if root.left:
-        traverseLeft(root.left, ans)
+        traverseLeft(root.left)
     
     # traverse leaf: left subtree and right subtree
     leafTraversal(root.left)
@@ -70,6 +70,7 @@ def boundaryTraversal(root):
 
 def verticalTraversal(root):
     map = defaultdict(list)
+    # using recursion
     def helper(root, index, map):
         if root is None:
             return
@@ -81,10 +82,30 @@ def verticalTraversal(root):
     helper(root, 0, map)
     traversal = []
     
-    print(sorted(map.items()))
+    print("Horizontal Distance (HD) Map\t", sorted(map.items()))
     for key in sorted(map):
         traversal.extend(map[key])
-    print("Vertical Level Traversal:\t", traversal)
+    print("Vertical Level Traversal Recur:\t", traversal)
+
+    # using queue
+    queue = []
+    map = defaultdict(list)
+    queue.append([root, [0, 0]])
+    while queue:
+        node, data = queue.pop(0)
+        map[data[0]].append(node.data)
+        hIndex = data[0]
+        depth = data[1]
+        if node.left:   
+            queue.append([node.left, [hIndex-1, depth + 1]])
+        if node.right:
+            queue.append([node.right, [hIndex+1, depth + 1]])
+    traversal = []
+    # print(sorted(map.items()))
+    for key in sorted(map):
+        traversal.extend(map[key])
+    print("Vertical Level Traversal Queue:\t", traversal)
+
 
 if __name__ == "__main__":
     root = Node(1)
