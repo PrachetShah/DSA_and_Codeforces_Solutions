@@ -23,6 +23,51 @@ def zigZagTraversal(root):
             queue.append(nextDepth)
     print("Zig Zag Traversal:\t\t", ans)
 
+def boundaryTraversal(root):
+    ans = [root.data]
+
+    def traverseLeft(root: Node):
+        if root is None or (root.left is None and root.right is None):
+            return
+        ans.append(root.data)
+        if root.left:
+            traverseLeft(root.left)
+        else:
+            traverseLeft(root.right)
+
+    def leafTraversal(root: Node):
+        if root is None:
+            return
+        if root.left is None and root.right is None:
+            ans.append(root.data)
+        if root.left:
+            leafTraversal(root.left)
+        if root.right:
+            leafTraversal(root.right)
+    
+    def rightTraversal(root: Node):
+        if root is None or (root.left is None and root.right is None):
+            return
+        if root.right:
+            rightTraversal(root.right)
+        else:
+            rightTraversal(root.left)
+        ans.append(root.data)
+    
+    print("Boundary traversal: \t", end=" ")
+    # traverse left
+    if root.left:
+        traverseLeft(root.left, ans)
+    
+    # traverse leaf: left subtree and right subtree
+    leafTraversal(root.left)
+    leafTraversal(root.right)
+
+    # travese right
+    rightTraversal(root.right)
+    print(ans)
+
+
 def verticalTraversal(root):
     map = defaultdict(list)
     def helper(root, index, map):
@@ -58,4 +103,5 @@ if __name__ == "__main__":
     tree.levelOrderTraversal(root)
 
     zigZagTraversal(root)
+    boundaryTraversal(root)
     verticalTraversal(root)

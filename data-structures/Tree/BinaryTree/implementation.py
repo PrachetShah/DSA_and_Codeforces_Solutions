@@ -21,6 +21,7 @@ class Tree:
         queue = []
         queue.append(root)
         queue.append(None)
+        print("Level Order Traversal of Tree:")
 
         while len(queue) > 0:
             node = queue.pop(0)
