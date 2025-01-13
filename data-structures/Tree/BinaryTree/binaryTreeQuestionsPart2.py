@@ -93,9 +93,9 @@ def verticalTraversal(root):
     queue.append([root, [0, 0]])
     while queue:
         node, data = queue.pop(0)
-        map[data[0]].append(node.data)
         hIndex = data[0]
         depth = data[1]
+        map[hIndex].append(node.data)
         if node.left:   
             queue.append([node.left, [hIndex-1, depth + 1]])
         if node.right:
