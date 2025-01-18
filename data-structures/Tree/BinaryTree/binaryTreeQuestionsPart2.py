@@ -106,8 +106,35 @@ def verticalTraversal(root):
         traversal.extend(map[key])
     print("Vertical Level Traversal Queue:\t", traversal)
 
+def topViewOfBT(root):
+    if root is None:
+        return None
+    
+    queue = [[root, 0]]
+    map = defaultdict(list)
+    while queue:
+        node, hd = queue.pop(0)
+        map[hd].append(node.data)
+        if node.left:
+            queue.append([node.left, hd-1])
+        if node.right:
+            queue.append([node.right, hd+1])
+    
+    # print(sorted(map.items()))
+    topView = []
+    for key in sorted(map):
+        topView.append(map[key][0])
+    print("VTop View of Binary Tree Queue:\t", topView)
+
 
 if __name__ == "__main__":
+    '''
+                1
+        2               3
+    4       5       6       7
+                       8      9
+                           120  100
+    '''
     root = Node(1)
     root.left = Node(2)
     root.left.left = Node(4)
@@ -126,3 +153,4 @@ if __name__ == "__main__":
     zigZagTraversal(root)
     boundaryTraversal(root)
     verticalTraversal(root)
+    topViewOfBT(root)
