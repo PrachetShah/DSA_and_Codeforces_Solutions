@@ -1,3 +1,16 @@
+'''
+Recurrence Relation:
+f(ind) = {
+    if ind == 0:
+        return 0
+    fs = f(ind-1) + abs(arr[ind] - arr[ind-1])
+    if index > 1:
+        ss = f(ind-2) + abs(arr[ind] - arr[ind-2])
+    return min(fs, ss)
+}
+'''
+
+
 # converting problem to recursive
 def frogJumpRecursion(arr):
     def helper(index):
