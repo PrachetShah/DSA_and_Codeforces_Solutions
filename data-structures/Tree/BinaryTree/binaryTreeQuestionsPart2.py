@@ -126,6 +126,25 @@ def topViewOfBT(root):
         topView.append(map[key][0])
     print("VTop View of Binary Tree Queue:\t", topView)
 
+def leftView_and_rightView_OfBt(root):
+    map = defaultdict(list)
+    level = 0
+    queue = [[root, 0]]
+    while queue:
+        node, level = queue.pop(0)
+        map[level].append(node.data)
+        if node.left:
+            queue.append([node.left, level+1])
+        if node.right:
+            queue.append([node.right, level+1])
+    leftView = []
+    rightView = []
+    for key in sorted(map):
+        leftView.append(map[key][0])
+        rightView.append(map[key][-1])
+    print("Left View of Binary Tree Queue:\t", leftView)
+    print("Right View of Binary Tree Queue:", rightView)
+
 
 if __name__ == "__main__":
     '''
@@ -154,3 +173,4 @@ if __name__ == "__main__":
     boundaryTraversal(root)
     verticalTraversal(root)
     topViewOfBT(root)
+    leftView_and_rightView_OfBt(root)
