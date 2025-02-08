@@ -84,6 +84,31 @@ def lowestCommonAncstorBinaryTree(root, n1, n2):
         lca = None
     print(f"Lowest(First) Common Ancestor of {n1} and {n2} is {lca.data if lca else 'NULL'}")
 
+def KSumPaths(root, k):
+    # Using Recursion
+    count = [0]
+    def solve(root, k, path:list):
+        if root is None:
+            return
+        path.append(root.data)
+        
+        # left
+        solve(root.left, k, path)
+        # right
+        solve(root.right, k, path)
+        
+        SUM = 0
+        for i in range(len(path)-1, -1, -1):
+            SUM += path[i]
+            if SUM == k:
+                print(path[i:])
+                count[0] += 1
+        path.pop(-1)
+    print("Finding Total K Sum Paths, Paths are:")
+    solve(root, k, [])
+    print("Total Sum K Paths are:", count[0])
+    pass
+
 if __name__ == "__main__":
     '''
                 1
@@ -106,9 +131,12 @@ if __name__ == "__main__":
 
     tree = Tree()
     tree.levelOrderTraversal(root)
-
+    print("-"*60)
     longestPathSum(root)
+    print("-"*60)
     lowestCommonAncstorBinaryTree(root, 4, 6)
     lowestCommonAncstorBinaryTree(root, 8, 100)
     lowestCommonAncstorBinaryTree(root, 8, 150)
     lowestCommonAncstorBinaryTree(root, 200, 150)
+    print("-"*60)
+    KSumPaths(root, 6)
