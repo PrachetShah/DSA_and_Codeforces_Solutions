@@ -79,7 +79,7 @@ def lowestCommonAncstorBinaryTree(root, n1, n2):
             return None
     
     if checkTree(root, n1) and checkTree(root, n2):
-        lca = solve(root)
+        lca = solve(root) 
     else:
         lca = None
     print(f"Lowest(First) Common Ancestor of {n1} and {n2} is {lca.data if lca else 'NULL'}")
