@@ -107,7 +107,35 @@ def KSumPaths(root, k):
     print("Finding Total K Sum Paths, Paths are:")
     solve(root, k, [])
     print("Total Sum K Paths are:", count[0])
-    pass
+
+
+def KthAncestor(root, n, ances):
+    k = [ances]
+    def solve(root, item):
+        if (root == None):
+            return False
+        
+        if (root.data == item):
+            k[0] -= 1
+            return True 
+        else:
+            flag = solve(root.left, item)
+            
+            if (flag):
+                if (k[0] == 0):
+                    print("[" + str(root.data) + "]", end = ' ')
+                    return False
+                k[0] -= 1
+                return True
+
+            flag2 = solve(root.right, item)
+            if (flag2):
+                if (k[0] == 0):
+                    print("[" + str(root.data) + "]")
+                    return False        
+                k[0] -= 1
+                return True
+    solve(root, n)
 
 if __name__ == "__main__":
     '''
@@ -140,3 +168,5 @@ if __name__ == "__main__":
     lowestCommonAncstorBinaryTree(root, 200, 150)
     print("-"*60)
     KSumPaths(root, 6)
+    print("-"*60)
+    KthAncestor(root, 8, 4)
