@@ -1,5 +1,4 @@
 from implementation import Tree, Node
-from collections import defaultdict
 
 def longestPathSum(root):
     '''
@@ -123,7 +122,7 @@ def KthAncestor(root, n, ances):
             
             if (flag):
                 if (k[0] == 0):
-                    print("[" + str(root.data) + "]", end = ' ')
+                    print("[" + str(root.data) + "]")
                     return False
                 k[0] -= 1
                 return True
@@ -131,11 +130,30 @@ def KthAncestor(root, n, ances):
             flag2 = solve(root.right, item)
             if (flag2):
                 if (k[0] == 0):
-                    print("[" + str(root.data) + "]")
+                    print("[" + str(root.data) + "]\n")
                     return False        
                 k[0] -= 1
                 return True
     solve(root, n)
+
+def maxSumofNonConnectedNodes(root):
+    # include, exclude
+    
+    def solve(root):
+        if root is None:
+            return [0, 0]
+        left = solve(root.left)    
+        right = solve(root.right)
+        
+        res = [0, 0]
+        res[0] = root.data + left[1] + right[1]
+        res[1] = max(left[0], left[1]) + max(right[0], right[1])
+
+        return res
+
+    ans = solve(root)
+    print("Max Sum of Non Connected Adjancent Nodes is:", max(ans[0], ans[1]))
+
 
 if __name__ == "__main__":
     '''
@@ -169,4 +187,7 @@ if __name__ == "__main__":
     print("-"*60)
     KSumPaths(root, 6)
     print("-"*60)
-    KthAncestor(root, 8, 4)
+    KthAncestor(root, 8, 2)
+    print("-"*60)
+    maxSumofNonConnectedNodes(root)
+    print("-"*60)
