@@ -15,7 +15,10 @@ int uniquePaths(int m, int n){
             if(i==0 && j==0){
                 temp[j] = 1;
             }else{
-                temp[j] = prevRow[j] + temp[j-1];
+                int left =0;
+                if(j>0)
+                    left = temp[j-1];
+                temp[j] = prevRow[j] + left;
             }
         }
         prevRow = temp;
