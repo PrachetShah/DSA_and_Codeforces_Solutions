@@ -1,7 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int NinjaTraining(int n, vector< vector<int> > &points){
+int recurSolve(int day, int last, int total, vector<vector<int>> points){
+    if(day==0){
+        int maxi = 0;
+        for(int i=0; i<total; i++){
+            if(i != last){
+                int curr = points[day][i];
+                maxi = max(maxi, curr);
+            }
+        }
+        return maxi;
+    }
+    int maximum = 0;
+    for(int i=0; i<total; i++){
+        if(i != last){
+            int curr = points[day][i] + recurSolve(day-1, i, total, points);
+            maximum = max(maximum, curr);
+        }
+    }
+    return maximum;
+}
+
+int NinjaTrainingRecur(int n, vector<vector<int>> points){
+    return recurSolve(n-1, 3, 3, points);
+}
+
+int NinjaTrainingSP(int n, vector< vector<int> > &points){
     vector<int> prevDay(4, 0);
     prevDay[0] = max(points[0][1], points[0][2]);
     prevDay[1] = max(points[0][0], points[0][2]);
@@ -24,24 +49,28 @@ int NinjaTraining(int n, vector< vector<int> > &points){
 }
 
 int main(){
-    // ios_base::sync_with_stdio(false);
-    // cin.tie(NULL);
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
 
     int t;
     cin >> t;
     while(t--){
         int n;
-        vector< vector<int> > grid(n, vector<int>(3, 0));
         cin >> n;
+        vector<vector<int>> grid(n, vector<int>(3));
         for(int i=0; i<n; i++){
-            for(int j=0; i<3; j++){
+            for(int j=0; j<3; j++){
                 int val;
                 cin >> val;
                 grid[i][j] = val;
             }
         }
-        int maxPoints = NinjaTraining(n, grid);
-        cout << "Max Points for Training by ninja are: " << maxPoints << endl;
+        cout << "INPUT DONE" << endl;
+        int maxPoints = NinjaTrainingSP(n, grid);
+        int max2 = NinjaTrainingRecur(n, grid);
+
+        cout << "[SP]\tMax Points for Training by ninja are: " << maxPoints << endl;
+        cout << "[RECU]\tMax Points for Training by ninja are: " << max2 << endl;
     }
 
     return 0;
