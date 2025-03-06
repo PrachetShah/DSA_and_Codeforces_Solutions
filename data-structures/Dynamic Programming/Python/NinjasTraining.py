@@ -1,6 +1,6 @@
 '''
 You are given 3 activities per day and each has certain points, your task is to have maximum points after all days but
-two activities cannot be perfoemed on consecutive days
+two activities cannot be performed on consecutive days
 2D DP Problem
     |09  50  01|
     |10 100  11|
