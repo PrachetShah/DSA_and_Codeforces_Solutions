@@ -17,10 +17,22 @@ void setIO(string s) {
 	freopen((s + ".out").c_str(), "w", stdout);
 }
 
-int main() {
-	setIO("problemname");
+void tc(){
+    vector<int> nums;
+    int n;
+    for(int i=0; i<7; i++){
+        cin >> n;
+        nums.push_back(n);
+    }
+    sort(nums.begin(), nums.end());
 
-    int t;
-    cin >> t;
-    cout << t;
+    // c = (a+b+c) - (a) - (b)
+    int val = nums[6] - nums[0] - nums[1];
+    cout << nums[0] << " " << nums[1] << " " << val;;
+}
+
+int main() {
+	// setIO("problemname");
+
+    tc();
 }

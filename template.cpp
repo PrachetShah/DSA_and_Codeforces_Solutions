@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// use it in bracket -> a%(MOD);
 #define MOD 1000000007;
 
 using ll = long long;
