@@ -6,8 +6,8 @@ using namespace std;
 
 using ll = long long;
 using vll = vector <ll>;
-using ii = pair <ll, ll>;
-using vii = vector <ii>;
+using pll = pair <ll, ll>;
+using vpl = vector <pll>;
 
 const ll INF = ll(1E18)+16;
 
