@@ -18,6 +18,13 @@ void setIO(string s) {
 	freopen((s + ".out").c_str(), "w", stdout);
 }
 
+template <class T> void print(vector<T> arr){
+    for(int i=0; i<arr.size(); i++){
+        cout << arr[i] << " ";
+    }
+    cout << "\n";
+}
+
 void tc(){
     
 }

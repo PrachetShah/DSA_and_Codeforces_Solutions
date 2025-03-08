@@ -11,6 +11,13 @@ using vii = vector <ii>;
 
 const ll INF = ll(1E18)+16;
 
+template <class T> void print(vector<T> arr){
+    for(int i=0; i<arr.size(); i++){
+        cout << arr[i] << " ";
+    }
+    cout << "\n";
+}
+
 void tc(){
     
 }
