@@ -17,7 +17,7 @@ using vpl = vector <pll>;
 const ll INF = ll(1E18)+16;
 const int MOD = 1e9+7;
 
-template <class T> void print(vector<T> arr){
+template <typename T> void print(vector<T> arr){
     for(int i=0; i<arr.size(); i++){
         cout << arr[i] << " ";
     }
