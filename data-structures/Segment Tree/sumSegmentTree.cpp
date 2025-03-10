@@ -140,12 +140,17 @@ int main(){
 
     SumSegmentTree<int> st(arr);
 
-     cout << "-------------------------------------------------" << endl;
+    cout << "-------------------------------------------------" << endl;
     // Display initial information
     cout << "Segment Tree for Sum Range Queries:" << endl;
     cout << "Original Array: ";
-    for (int num : arr)
-        cout << num << " ";
+    // use of lambda function, passing without variable
+    [](vector<int> arr){
+        for(int num: arr){
+            cout << num << " ";
+        }
+    }(arr);
+
     cout << endl;
 
     cout << "-------------------------------------------------" << endl;
