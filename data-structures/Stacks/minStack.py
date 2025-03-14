@@ -1,4 +1,4 @@
-# returns minimum element of stack in O(1) time without extra spae complexity
+# returns minimum element of stack in O(1) time without extra space complexity
 class MinStack:
     def __init__(self):
         self.stack = []
