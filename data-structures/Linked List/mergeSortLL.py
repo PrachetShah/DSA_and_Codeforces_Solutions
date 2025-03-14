@@ -38,14 +38,10 @@ def merge(left, right):
             right = right.next
         result = result.next
     
-    while left:
+    if left:
         result.next = left
-        left = left.next
-        result = result.next
-    while right:
+    if right:
         result.next = right
-        right = right.next
-        result = result.next
     
     return head.next
 
