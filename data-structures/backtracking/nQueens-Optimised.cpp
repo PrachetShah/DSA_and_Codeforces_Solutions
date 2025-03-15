@@ -38,7 +38,7 @@ void addSolution(vector<vector<int>> &board, vector<vector<int>> &ans, int n){
 
 
 void solve(int col, vector<vector<int>> &ans, vector<vector<int>> &board, int n,
- map<int, bool> &rowCheck, map<int, bool> &lowDiag, map<int, bool> &upDiag){
+	map<int, bool> &rowCheck, map<int, bool> &lowDiag, map<int, bool> &upDiag){
 	if(col == n){
 		addSolution(board, ans, n);
 		return;
