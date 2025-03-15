@@ -17,6 +17,13 @@ using vpl = vector <pll>;
 const ll INF = ll(1E18)+16;
 const int MOD = 1e9+7;
 
+// it dictates that a should be placed before b in the sorted sequence if the expression a < b evaluates to true. 
+// Conversely, if it evaluates to false, a will be placed after or at the same position as b
+// for Min Heap, change sign for Max heap
+const auto cmp = [](int a, int b){
+    return a < b;
+};
+
 template <typename T> void print(vector<T> arr){
     for(int i=0; i<arr.size(); i++){
         cout << arr[i] << " ";
@@ -25,7 +32,7 @@ template <typename T> void print(vector<T> arr){
 }
 
 void tc(){
-    
+    priority_queue<int, vector<int>, decltype(cmp)> pq(cmp);
 }
 
 int main(){
