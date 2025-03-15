@@ -66,48 +66,25 @@ void printLL(Node* head){
 
 // Solution using HashMap
 class Solution {
-    private:
-        void insertAtTail(Node* &head, Node* &tail, int d){
-            Node* newNode = new Node(d);
-            if(head==NULL){
-                head = newNode;
-                tail = newNode;
-                return;
-            }
-            else{
-                tail ->next = newNode;
-                tail = newNode;
-            }
-        }
 public:
     Node* copyRandomList(Node* head) {
-        // create a clone list
-        Node* cloneHead = NULL;
-        Node* cloneTail = NULL;
-        Node* temp = head;
-        while(temp!=NULL){
-            insertAtTail(cloneHead,cloneTail,temp->val);
-            temp = temp->next;
-        }
-        
         // create a map
         unordered_map<Node*,Node*>oldtonew;
-        Node* original = head;
-        Node* clone = cloneHead;
-        while(original != NULL && clone!=NULL){
-            oldtonew[original]=clone;
-            original = original->next;
-            clone = clone->next;
+        Node* curr = head;
+
+        while(curr){
+            oldtonew[curr] = new Node(curr->val);
+            curr = curr->next;
         }
-        original=head;
-        clone = cloneHead;
+        curr=head;
         
-        while(original!=NULL){
-            clone->random = oldtonew[original->random];
-            original = original->next;
-            clone = clone->next;
+        while(curr!=NULL){
+            Node* copy = oldtonew[curr];
+            copy->next = oldtonew[curr->next];
+            copy->random = oldtonew[curr->random];
+            curr = curr->next;
         }
-        return cloneHead;
+        return oldtonew[head];
     }
 };
 
