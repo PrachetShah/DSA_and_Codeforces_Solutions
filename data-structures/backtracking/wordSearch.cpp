@@ -2,11 +2,26 @@
 
 using namespace std;
 
+/*
+    O(3^L * M * N), where:  
+    M is the number of rows in the board.
+    N is the number of columns in the board.
+    L is the length of the target word.
+
+    We need to search for the word starting from every cell in the (𝑀×𝑁) board.
+
+    At each step in the recursion, we move in one of four possible directions (up, down, left, right).
+    However, we cannot move back to the previous character, so effectively we have at most 3 choices per step 
+    (except for the first move). Since we need to find a word of length L, the worst case results in a branching factor 
+    of 3 for each of the remaining L−1 characters.
+    Thus, the recursive call tree has O(3^L) complexity.
+*/
 
 bool dfs(vector<vector<char>> board, int i, int j, int k, map<string, bool> &visited, string word){
     if(k == word.length()){
         return true;
     }
+    
     string visitedKey = to_string(i)+","+to_string(j);
 
     if(i<0 || i>=board.size()|| j<0 || j>=board[0].size() || 
@@ -42,7 +57,7 @@ bool exist(vector<vector<char>>& board, string word) {
         }
     }
 
-    // checking if another word count is less so reverse the string
+    // OPTIMISATION to save time, checking if another word count is less so reverse the string
     if(wordCnt[word[0]] > wordCnt[word[word.length()-1]]){
         reverse(word.begin(), word.end());
     }
