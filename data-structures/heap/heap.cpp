@@ -82,7 +82,7 @@ void maxHeapify(int arr[], int n, int i){
         largest = right;
     }
 
-    // check if largest for changed or not
+    // check if largest for changed or not, if changed then propogate the change
     if(largest != i){
         swap(arr[largest], arr[i]);
         maxHeapify(arr, n, largest);
