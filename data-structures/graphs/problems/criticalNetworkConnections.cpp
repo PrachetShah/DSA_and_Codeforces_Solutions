@@ -1,4 +1,10 @@
 /*
+Tarjan's Algorithm
+Used to Find the Bridges in the graph
+A bridge is when removed a edge, graph gets seperated into two seperate components
+*/
+/*
+Tarjans Algorithm used to find bridges in graph
 Required 4 DS:
 1. Discovery
 2. Lowest Poss
@@ -20,30 +26,27 @@ void printAdList(unordered_map<int, vector<pair<int, int>>> adjacencyList){
     }
 }
 
-void dfs(int node, int parent, int &timer, vector<int> &disc, vector<int> &low, 
+void dfs(int node, int parent, int &timer, vector<int> &time_inserted, vector<int> &low, 
     vector<vector<int>> &result, unordered_map<int, bool> &visited, unordered_map<int, vector<int>> adjacencyList){
-        visited[node] = true;
-        disc[node] = low[node] = timer++;
+    visited[node] = true;
+    time_inserted[node] = low[node] = timer++;
 
-        for(auto nbr: adjacencyList[node]){
-            if(nbr == parent){
-                continue;
-            }
-            if(!visited[nbr]){
-                dfs(nbr, node, timer, disc, low, result, visited, adjacencyList);
-                low[node] = min(low[node], low[nbr]);
-                // check edge is bridge
-                if(low[nbr] > disc[node]){
-                    vector<int> ans;
-                    ans.push_back(node);
-                    ans.push_back(nbr);
-                    result.push_back(ans);
-                }
-            }else{
-                // back edge
-                low[node] = min(low[node], disc[nbr]);
-            }
+    for(auto nbr: adjacencyList[node]){
+        if(nbr == parent){
+            continue;
         }
+        if(!visited[nbr]){
+            dfs(nbr, node, timer, time_inserted, low, result, visited, adjacencyList);
+            low[node] = min(low[node], low[nbr]);
+            // // node --- nbr is a bridge??
+            if(low[nbr] > time_inserted[node]){
+                result.push_back({node, nbr});
+            }
+        }else{
+            // visited so bridge not possible and be greedy and take min time
+            low[node] = min(low[node], time_inserted[nbr]);
+        }
+    }
 }
 
 vector<vector<int>> findBridges(vector<vector<int>> &edges, int v, int e){
@@ -58,7 +61,7 @@ vector<vector<int>> findBridges(vector<vector<int>> &edges, int v, int e){
 
     int timer = 0;
     int parent = -1;
-    vector<int> disc(v, -1);
+    vector<int> time_inserted(v, -1);
     vector<int> low(v, -1);
     unordered_map<int, bool> visited;
     vector<vector<int>> result;
@@ -66,7 +69,7 @@ vector<vector<int>> findBridges(vector<vector<int>> &edges, int v, int e){
     // dfs
     for(int i=0; i<v; i++){
         if(!visited[i]){
-            dfs(i, parent, timer, disc, low, result, visited, adjacencyList);
+            dfs(i, parent, timer, time_inserted, low, result, visited, adjacencyList);
         }
     }
 
