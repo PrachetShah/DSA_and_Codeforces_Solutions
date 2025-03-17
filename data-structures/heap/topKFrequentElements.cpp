@@ -4,7 +4,7 @@ using namespace std;
 
 using pii = pair<int, int>;
 
-
+// TC: O(nlogk)
 vector<int> topKFrequentElements(vector<int> arr, int k){
     // it dictates that a should be placed before b in the sorted sequence if the expression a < b evaluates to true. 
     // Conversely, if it evaluates to false, a will be placed after or at the same position as b
