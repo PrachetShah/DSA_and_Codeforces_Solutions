@@ -23,8 +23,8 @@ class MinStack:
             toPop = self.stack.pop()
             print(f"{toPop} popped from stack")
         else:
-            val = 2*self.mini - self.stack[-1]
-            self.mini = val
+            nextMin = 2*self.mini - self.stack[-1]
+            self.mini = nextMin
             toPop = self.stack.pop()
             print(f"{(toPop+self.mini)//2} popped from stack")
 
