@@ -38,6 +38,7 @@ class Trie{
             }
             curr = curr->child[c-'a'];
         }
+        // end of word, mark as completed
         curr->isWord = true;
     }
 

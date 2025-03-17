@@ -1,3 +1,7 @@
+/*
+Flatten Binary Tree to LL using Morris Traversal which does it in O(1) space
+*/
+
 #include<bits/stdc++.h>
 
 using namespace std;

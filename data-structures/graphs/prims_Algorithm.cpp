@@ -15,9 +15,9 @@ Prim's Algorithm:
     i. Write for loop to find Mini Key Val node && MST[node]==false
     ii. MST[node] = true
     iii. For n: ADJACENT[node]
-        1) if key[n] < n.weigth
+        1) if key[n] < n.weight
             parent[n] = node
-            key[n] = n.weigth
+            key[n] = n.weight
 4. Print Parent Node which can be used to create the MST or return sum of MST
 
 TC: O(n^2), O(n)

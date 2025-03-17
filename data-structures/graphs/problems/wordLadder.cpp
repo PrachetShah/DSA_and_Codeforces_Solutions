@@ -20,6 +20,7 @@ int wordLadder(string beginWord, string endWord, vector<string> wordList){
     int ladder = 1;
     while(!wordQueue.empty()){
         int n = wordQueue.size();
+        // traverse current level as per BFS
         for(int i=0; i<n; i++){
             string curr = wordQueue.front();
             wordQueue.pop();

@@ -5,6 +5,19 @@ using namespace std;
 
 const vector<pair<int, int>> dir = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
 
+// dfs based approach
+void dfs(int row, int col,vector<vector<char>> &grid, int rows, int cols){
+    if(row<0 || col<0 || row>=rows || col>=cols || grid[row][col]!='1'){
+        return;
+    }
+    grid[row][col] = '#';
+    dfs(row+1, col, grid, rows, cols);
+    dfs(row-1, col, grid, rows, cols);
+    dfs(row, col+1, grid, rows, cols);
+    dfs(row, col-1, grid, rows, cols);
+}
+
+// bfs based approach using queues
 void bfs(int row, int col, vector<vector<int>> &visited, vector<vector<string>> grid, int rows, int cols){
     visited[row][col] = 1;
     queue<pair<int, int>> q;
