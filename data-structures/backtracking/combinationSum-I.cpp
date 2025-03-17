@@ -1,6 +1,6 @@
 /*
  * Combination sum with DUPLICATES ALLOWED
- TC: O(2^n) in the worst case, as we explore all subsets of candidates
+ * TC: O(2^n) in the worst case, as we explore all subsets of candidates
 */
 #include<bits/stdc++.h>
 
