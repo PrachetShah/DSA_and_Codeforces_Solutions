@@ -11,13 +11,11 @@ map<int, bool> &rowCheck, map<int, bool> &lowDiag, map<int, bool> &upDiag){
 		return false;
 	}
 
-	x=row, y=col;
 	// check diagonal
 	if(lowDiag[row+col]){
 		return false;
 	}
 
-	x=row, y=col;
 	if(upDiag[n-1+col-row]){
 		return false;
 	}
