@@ -42,7 +42,7 @@ int taskSchedulingPQ(vector<char> tasks, int n){
 Calculate the frequency and maximum frequency for tasks
 Count total number of tasks with maxFreq
 Final Time: [(maxFreq-1)(n+1) + countTask] with max Freq
-AAAABBBC
+AAABBBC
 n = 2
 A B C | A B _ | A B
 Ans: MAX{ (3-1)(n+1) + 2 -> (8) , tasks.size() ]
