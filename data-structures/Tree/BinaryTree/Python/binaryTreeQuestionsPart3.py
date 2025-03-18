@@ -137,7 +137,7 @@ def KthAncestor(root, n, ances):
     solve(root, n)
 
 def maxSumofNonConnectedNodes(root):
-    # include, exclude
+    # include, exclude [i, j] -> i=included val, j=excluded val
     
     def solve(root):
         if root is None:
@@ -146,7 +146,9 @@ def maxSumofNonConnectedNodes(root):
         right = solve(root.right)
         
         res = [0, 0]
+        # at this step, i can include current Node's value, if it does then take excluded value of prev
         res[0] = root.data + left[1] + right[1]
+        # at this step, i can exclude current Node's value, so it can be sum of its children's max value
         res[1] = max(left[0], left[1]) + max(right[0], right[1])
 
         return res
