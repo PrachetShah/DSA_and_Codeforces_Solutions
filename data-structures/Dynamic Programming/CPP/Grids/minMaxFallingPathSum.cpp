@@ -20,8 +20,8 @@ int f(int i, int j, vector<vector<int>> grid){
         return grid[i][j];
     }
     int up = grid[i][j] + f(i-1, j, grid);
-    int leftDiag = grid[i][j] + f(i-1, j+1, grid);
-    int rightDiag = grid[i][j] + f(i-1, j-1, grid);
+    int leftDiag = grid[i][j] + f(i-1, j-1, grid);
+    int rightDiag = grid[i][j] + f(i-1, j+1, grid);
     return max(up, max(leftDiag, rightDiag));
 }
 int fallingPathSumRec(vector<vector<int>> grid){
@@ -49,8 +49,8 @@ int fm(int i, int j, vector<vector<int>> &dp, vector<vector<int>> grid){
         return dp[i][j];
     }
     int up = grid[i][j] + fm(i-1, j, dp, grid);
-    int leftDiag = grid[i][j] + fm(i-1, j+1, dp, grid);
-    int rightDiag = grid[i][j] + fm(i-1, j-1, dp, grid);
+    int leftDiag = grid[i][j] + fm(i-1, j-1, dp, grid);
+    int rightDiag = grid[i][j] + fm(i-1, j+1, dp, grid);
     dp[i][j] = max(up, max(leftDiag, rightDiag));
     return dp[i][j];
 }
