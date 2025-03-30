@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Top Down
 int recurSolve(int day, int last, int total, vector<vector<int>> points){
     if(day==0){
         int maxi = 0;
