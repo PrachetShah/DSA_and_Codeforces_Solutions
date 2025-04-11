@@ -76,8 +76,10 @@ int main(){
     };
 
     Solution s;
+    cout << "Unsolved Sudoku:";
     s.printSudoku(board);
     s.solveSudoku(board);
+    cout << "\nSolved Sudoku:";
     s.printSudoku(board);
     return 0;
 }
