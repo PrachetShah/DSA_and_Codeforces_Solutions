@@ -28,6 +28,7 @@ void dfs(string s, int index, vector<string> &comb, vector<vector<string>> &ans)
         }
     }
 }
+
 vector<vector<string>> partition(string s) {
     vector<vector<string>> ans;
     vector<string> comb;

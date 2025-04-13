@@ -17,7 +17,7 @@ void dfs(vector<int> candidates, int index, int target, vector<int> &selected, v
     for(int i=index; i<candidates.size(); i++){
         // CHANGE 2
         if(i>index && candidates[i]==candidates[i-1]){
-            continue;;
+            continue;
         }
         if(candidates[i] > target){
             break;
