@@ -9,6 +9,8 @@ Here,
     with sum K/2, then remanining elements will be of sum K/2;
     
     So question becomes, given an array, check if we can get subset with sum K/2
+
+    This is where 0 is not present in nums; 1 <= nums[i] <= 1000
 */
 
 #include<bits/stdc++.h>
