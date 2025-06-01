@@ -74,9 +74,19 @@ bool exist(vector<vector<char>>& board, string word) {
     return false;
 }
 
+template <typename T> void print(vector<vector<T>> board){
+    for(auto row: board){
+        for(auto col: row){
+            cout << col << " ";
+        }
+        cout << endl;
+    }
+}
 
 int main(){
     vector<vector<char>> board = {{'A','B','C','E'},{'S','F','C','S'},{'A','D','E','E'}};
     string word = "ABCCED";
-    cout << exist(board, word);
+    cout << (exist(board, word) ? word + " exists in board" : word + " does not exist in grid") << endl;
+    cout << "Board:\n";
+    print(board);
 }
