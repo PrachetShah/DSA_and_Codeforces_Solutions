@@ -37,5 +37,14 @@ vector<vector<string>> partition(string s) {
 }
 
 int main(){
+    string s = "aaba";
+    vector<vector<string>> ans = partition(s);
+    
+    for(auto arr: ans){
+        for(auto s: arr){
+            cout << s << " ";
+        }
+        cout << endl;
+    }
     return 0;
 }
