@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Top Down
+// Recursion Top Down
 int recurSolve(int day, int last, int totalDays, vector<vector<int>> points){
     if(day==0){
         int maxi = 0;
@@ -27,6 +27,37 @@ int NinjaTrainingRecur(int n, vector<vector<int>> points){
     return recurSolve(n-1, 3, 3, points);
 }
 
+// Memoixation
+int memSolve(int day, int last, int totalDays, vector<vector<int>> points, vector<vector<int>> &dp){
+    if(day==0){
+        int maxi = 0;
+        for(int i=0; i<totalDays; i++){
+            if(i != last){
+                int curr = points[day][i];
+                maxi = max(maxi, curr);
+            }
+        }
+        return maxi;
+    }
+    if(dp[day][last] != -1){
+        return dp[day][last];
+    }
+    int maximum = 0;
+    for(int i=0; i<totalDays; i++){
+        if(i != last){
+            int curr = points[day][i] + memSolve(day-1, i, totalDays, points, dp);
+            maximum = max(maximum, curr);
+        }
+    }
+    return dp[day][last] = maximum;
+}
+
+int NinjaTrainingMem(int n, vector<vector<int>> points){
+    vector<vector<int>> dp(n, vector<int>(4, -1));
+    return memSolve(n-1, 3, 3, points, dp);
+}
+
+// Space Optimisation
 int NinjaTrainingSP(int n, vector< vector<int> > &points){
     vector<int> prevDay(4, 0);
     prevDay[0] = max(points[0][1], points[0][2]);
@@ -69,9 +100,11 @@ int main(){
         cout << "INPUT DONE" << endl;
         int maxPoints = NinjaTrainingSP(n, grid);
         int max2 = NinjaTrainingRecur(n, grid);
+        int max3 = NinjaTrainingMem(n, grid);
 
-        cout << "[SP]\tMax Points for Training by ninja are: " << maxPoints << endl;
         cout << "[RECU]\tMax Points for Training by ninja are: " << max2 << endl;
+        cout << "[MEM]\tMax Points for Training by ninja are: " << max3 << endl;
+        cout << "[SP]\tMax Points for Training by ninja are: " << maxPoints << endl;
     }
 
     return 0;
