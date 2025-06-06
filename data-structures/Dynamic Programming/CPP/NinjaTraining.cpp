@@ -2,10 +2,10 @@
 using namespace std;
 
 // Top Down
-int recurSolve(int day, int last, int total, vector<vector<int>> points){
+int recurSolve(int day, int last, int totalDays, vector<vector<int>> points){
     if(day==0){
         int maxi = 0;
-        for(int i=0; i<total; i++){
+        for(int i=0; i<totalDays; i++){
             if(i != last){
                 int curr = points[day][i];
                 maxi = max(maxi, curr);
@@ -14,9 +14,9 @@ int recurSolve(int day, int last, int total, vector<vector<int>> points){
         return maxi;
     }
     int maximum = 0;
-    for(int i=0; i<total; i++){
+    for(int i=0; i<totalDays; i++){
         if(i != last){
-            int curr = points[day][i] + recurSolve(day-1, i, total, points);
+            int curr = points[day][i] + recurSolve(day-1, i, totalDays, points);
             maximum = max(maximum, curr);
         }
     }
