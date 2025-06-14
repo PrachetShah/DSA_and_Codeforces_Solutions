@@ -81,7 +81,6 @@ int findCheapestPriceDjikstra(int n, vector<vector<int>>& flights, int src, int 
     minHeap.push( { 0, src, 0 } ); // cost, vertex, hops
     
     vector<int> visited(n, INT_MAX);
-    visited[src] = 0;
 
     while( !minHeap.empty() ) {
         auto t = minHeap.top(); minHeap.pop();
@@ -91,12 +90,8 @@ int findCheapestPriceDjikstra(int n, vector<vector<int>>& flights, int src, int 
         if( curr == dst )
             return cost;
 
-        if(visited[curr] !=INT_MAX && visited[curr] < stop){
-            continue;
-        }
-        if(stop > k){
-            continue;
-        }
+        if (stop > k || visited[curr] <= stop) continue;
+        
         visited[curr] = min(visited[curr], stop);
         
         for( auto nbr : adjList[curr] )
