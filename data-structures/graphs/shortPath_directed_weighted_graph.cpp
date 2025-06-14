@@ -26,7 +26,7 @@ Dijkstra's Algorithm: Typically uses a priority queue (min-heap) to efficiently 
 Topological Sorting with DFS: Uses a stack to keep track of the order in which nodes finish processing.
 Time Complexity:
 
-Dijkstra's Algorithm: O((E)* og(V)), where V is the number of vertices and E is the number of edges.
+Dijkstra's Algorithm: O((E)* log(V)), where V is the number of vertices and E is the number of edges.
 Topological Sorting with DFS: O(V + E), where V is the number of vertices and E is the number of edges.
 */
 
