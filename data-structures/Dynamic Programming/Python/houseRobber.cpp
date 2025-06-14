@@ -4,18 +4,6 @@ using namespace std;
 
 class Solution {
     public:
-        int solve(int ind, vector<int> nums){
-            if(ind == 0){
-                return nums[ind];
-            }
-            // pick
-            int pick = 0;
-            if(ind>1){
-                pick = nums[ind] + solve(ind-2, nums);
-            }
-            int notPick = 0 + solve(ind-1, nums);
-            return max(pick, notPick);
-        }
         int rob(vector<int>& nums) {
             int n = nums.size();
             if(n==1){
