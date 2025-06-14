@@ -19,7 +19,7 @@ class Node{
 class Solution{
     public:
     Node* prev = nullptr;
-    // 1. Reursion
+    // 1. Recursion
     void flatten(Node* root){
         // O(n), O(n)
         if(root==nullptr){
