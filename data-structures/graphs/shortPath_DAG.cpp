@@ -1,5 +1,5 @@
 /*
-Shorted Path in Directed Weighted Graph (DAG)
+Shorted Path in Directed Acyclic Graph (DAG)
 
 Before:
 Adjancency List for Directed Weighted Graph:
