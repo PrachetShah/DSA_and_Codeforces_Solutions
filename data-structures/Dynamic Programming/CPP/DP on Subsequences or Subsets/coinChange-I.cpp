@@ -100,7 +100,7 @@ int coinChangeTab(vector<int> nums, int target){
         for(int T=0; T<=target; T++){
             int notTake = 0 + dp[index-1][T];
             int take = INT_MAX;
-            if(nums[index] < T){
+            if(nums[index] <= T){
                 take = 1 + dp[index][T-nums[index]];
             }
             dp[index][T] = min(take, notTake); 
