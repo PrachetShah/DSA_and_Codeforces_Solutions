@@ -65,39 +65,32 @@ void BFS(map<int, vector<int>> AdList, int startNode){
     return;
 }
 
-void DFS(map<int, vector<int>> adList, int startNode){
-    map<int, bool> visited;
-    stack<int> s;
-    s.push(startNode);
-    visited[startNode] = 1;
-
-    cout << "DFS Traversal of Graph: ";
-    while(!s.empty()){
-        int node = s.top();
-        s.pop();
-        cout << node << " ";
-        
-        for(auto vertice: adList[node]){
-            if(!visited[vertice]){
-                s.push(vertice);
-                visited[vertice] = 1;
-            }
+bool DFS(int src, int parent, map<int, bool> &visited, map<int, vector<int>> adj){
+    visited[src] = true;
+    for(auto nbr: adj[src]){
+        if(!visited[nbr]){
+            DFS(nbr, src, visited, adj);
+        }else if(parent != nbr){
+            return true;
         }
-
     }
-    cout << "\n";
+    return false;
 }
 
-void DFSRecur(int V, map<int, bool> &visited, map<int, vector<int>> adjList){
-    visited[V] = true;
-    cout << V << " ";
-        
-    for(auto x: adjList[V]){
-        if(!visited[x]){
-            DFSRecur(x, visited, adjList);
+void isCyclicDFS(int nodes, map<int, vector<int>> adj){
+    map<int, bool> visited;
+    int parent = -1;
+    int src = 0;
+    for(int i=0; i<nodes; i++){
+        if(!visited[i]){
+            if(DFS(i, -1, visited, adj)){
+                cout << "Cycle Found in Graph via DFS" << endl;
+                return;
+            }
         }
     }
-    cout << "\n";
+    cout << "Cycle Not Found in Graph via DFS" << endl;
+    return;
 }
 
 
@@ -133,12 +126,12 @@ void cycleDetectBFS(int nodes, map<int, vector<int>> adj){
         if(!visited[i]){
             bool ans = isCyclicBFS(i, visited, adj);
             if(ans){
-                cout << "Cycle Exists in Graph\n";
+                cout << "Cycle Exists in Graph via BFS\n";
                 return;
             }
         }
     }
-    cout << "Cyle Does not Exist in Graph\n";
+    cout << "Cyle Does not Exist in Graph via BFS\n";
 }
 
 int main(){
@@ -161,11 +154,9 @@ int main(){
     // BFS Traversal of Graph
     BFS(adjacencyList, 0);
     
-    // DFS Traversal of Graph
-    DFS(adjacencyList, 0);
     
-    // DFS Traversal of Graph Recursive
-    DFS(adjacencyList, 0);
+    // cout << "Cycle Detection DFS Traversal of Graph Recursive" << endl;
+    isCyclicDFS(nodes, adjacencyList);
 
     // Cycle Detection in Undirected Graph using BFS, in DFS, just replace queue with stack and its done
     // FOR UNDIRECTED GRAPHS
