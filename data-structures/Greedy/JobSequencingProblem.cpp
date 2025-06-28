@@ -41,7 +41,8 @@ vector<int> jobSequencingBrute(vector<int> &deadline, vector<int> &profit) {
 // SC: O(n)
 vector<int> jobSequencingOptimal(vector<int> &deadline, vector<int> &profit){
     int n = deadline.size();
-    vector<int> ans = {0, 0};
+    int cnt = 0;
+    int totalProfit = 0;
 
     vector<pair<int, int>> jobs;
     for (int i = 0; i < n; i++) {
@@ -67,13 +68,12 @@ vector<int> jobSequencingOptimal(vector<int> &deadline, vector<int> &profit){
         }
     }
 
-    while (!pq.empty()) {
-        ans[1] += pq.top();
+    while(!pq.empty()){
+        totalProfit += pq.top();
         pq.pop();
-        ans[0]++;
+        cnt++;
     }
-
-    return ans;
+    return {cnt, totalProfit};
 }
 
 int main(){
