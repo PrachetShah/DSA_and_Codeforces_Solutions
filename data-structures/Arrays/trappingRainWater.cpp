@@ -11,12 +11,12 @@ int trap(vector<int> heights){
 	int water = 0;
 	
 	while(left < right){
+		leftMax = max(leftMax, heights[left]);
+		rightMax = max(rightMax, heights[right]);
 		if(leftMax < rightMax){
-			leftMax = max(leftMax, heights[left]);
 			water += leftMax - heights[left];
 			left++;
 		}else{
-			rightMax = max(rightMax, heights[right]);
 			water += rightMax - heights[right];
 			right--;
 		}
