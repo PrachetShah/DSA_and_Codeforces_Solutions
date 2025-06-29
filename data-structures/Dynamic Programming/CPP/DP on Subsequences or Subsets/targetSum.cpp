@@ -7,7 +7,7 @@ const int MOD = 1e9+7;
 using namespace std;
 
 int findWays(vector<int> nums, int target){
-int n = nums.size();
+    int n = nums.size();
     vector<int> prev(target+1, 0);
     if(nums[0] == 0){
         prev[0] = 2;
