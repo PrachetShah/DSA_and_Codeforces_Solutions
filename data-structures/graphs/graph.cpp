@@ -69,7 +69,9 @@ bool DFS(int src, int parent, map<int, bool> &visited, map<int, vector<int>> adj
     visited[src] = true;
     for(auto nbr: adj[src]){
         if(!visited[nbr]){
-            DFS(nbr, src, visited, adj);
+            if(DFS(nbr, src, visited, adj)){
+                return true;
+            }
         }else if(parent != nbr){
             return true;
         }
