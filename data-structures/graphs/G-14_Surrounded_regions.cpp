@@ -2,9 +2,12 @@
 
 using namespace std;
 
+// TC: O(N)+ O(M) + O(N*M)*4 (four directions)
+// SC: O(N*M) -> Max Recursion Depth
 class Solution {
-public:
+private:
     vector<pair<int, int>> dir = {{0, -1}, {1, 0}, {0, 1}, {-1, 0}};
+
     void DFS(int x, int y, vector<vector<char>> &board, vector<vector<bool>> &visited){
         int n = board.size();
         int m = board[0].size();
@@ -18,6 +21,7 @@ public:
             }
         }
     }
+public:
     void solve(vector<vector<char>>& board) {
         int n = board.size();
         int m = board[0].size();
