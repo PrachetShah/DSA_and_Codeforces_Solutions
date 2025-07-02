@@ -123,6 +123,14 @@ int zeroOne_KnapsackSP(int bagWeight, vector<int> weight, vector<int> value){
 // There is no need of right elements if started from bagWeight, and went to 0, 
 // hence we only need to have 1 array needed to store the computations for it
 // So need for Curr, as prev only stores all the required weights since it only requires [j] and [j-weight[i]]
+
+/*
+Why Reverse order
+By iterating backward (from bagWeight to 0), you are always using the results from the previous 
+iteration (or row) for the current weight calculation, thus optimizing space. If you iterated forward, 
+you would be using the updated values for the current item in the same row, which are not necessarily 
+the values from the previous row/iteration.
+*/
 int zeroOne_KnapsackSPF(int bagWeight, vector<int> weight, vector<int> value){
     int n = weight.size();
     vector<int> prev(bagWeight+1, 0);

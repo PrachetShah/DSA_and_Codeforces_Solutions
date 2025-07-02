@@ -4,6 +4,8 @@ Return the total number of combinations that make up that amount.
 Infinite Supply Problem
 Finding num of ways so, dont add 1 to pick which is used to find minimum num of coins since we need total, 
 not the total in one min-max situation
+This is a variation of the Coin Change Problem where we need to find the number of ways to make a certain amount using given denominations.
+This problem can be solved using dynamic programming techniques similar to the Unbounded Knapsack Problem.
 */
 #include<bits/stdc++.h>
 
