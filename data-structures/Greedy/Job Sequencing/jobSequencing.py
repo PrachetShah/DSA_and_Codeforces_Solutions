@@ -1,5 +1,8 @@
 import heapq
 
+# Optimal
+# TC: O(nlogn) + O(n)
+# SC: O(n)
 class Solution:
     def jobSequencing(self, deadline, profit):
         # code here
