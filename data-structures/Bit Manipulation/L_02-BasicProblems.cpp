@@ -7,8 +7,6 @@ void swap2Num(int &a, int &b){
     /**
      * Logic:
      * XOR of number with same number = 0
-     * XOR:
-     * 0 0 -> 0 ; 0 1 -> 1 ; 1 0 -> 1 ; 1 1 -> 0
      */
 
     //  first do a = a^b
@@ -60,6 +58,17 @@ void setIthBit(int n, int i){
     cout << "Number after setting " << i << "th Bit in num " << n << " is " << ans << endl;
 }
 
+void clearIthBit(int n, int i){
+    /**
+     * Left Shift 1 'i' places and NOT it, and then AND it with Number
+     * 
+     * Basically, ( ~(1 << i) & n)
+     */
+    int notLeftShift = ~(1<<i);
+    int ans = n&notLeftShift;
+    cout << "Number after setting " << i << "th Bit in num " << n << " is " << ans << endl;
+}
+
 int main (){
     cout << "-------------------------------------------" << endl;
     // Swapping Two Numbers without Third Variable
@@ -82,5 +91,12 @@ int main (){
     // 9 in binary is (1 0 0 1)
     cout << "Setting the i'th bit\n";
     for(int temp=0; temp<=i; temp++) setIthBit(n, temp);
+    cout << "-------------------------------------------" << endl;
+
+    // Clearing the i'th bit
+    n=10, i=3;
+    // 10 in binary is (1 0 1 0)
+    cout << "Clearing the i'th bit\n";
+    for(int temp=0; temp<=i; temp++) clearIthBit(n, temp);
     cout << "-------------------------------------------" << endl;
 }
