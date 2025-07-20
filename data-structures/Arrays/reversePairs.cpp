@@ -13,7 +13,7 @@ class Solution {
                 while (end <= high && (long)nums[i] > (long)2*nums[end]) end++;
                 cnt += end - (mid + 1);
             }
-            end =mid+1;
+            end = mid+1;
             vector<int> temp;
             while(start<=mid && end<=high){
                 if(nums[start] < nums[end]){
