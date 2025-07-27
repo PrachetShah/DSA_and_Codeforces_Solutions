@@ -4,7 +4,7 @@ using namespace std;
 
 int lowerBound(vector<int> arr, int toSearch){
     int n = arr.size();
-    int ans = 0;
+    int ans = n;
     int low = 0, high=n-1;
 
     while(low <= high){
@@ -19,13 +19,13 @@ int lowerBound(vector<int> arr, int toSearch){
     return ans;
 }
 
-int upperBound(vector<int> arr, int x){
+int upperBound(vector<int> arr, int toSearch){
     int n = arr.size();
-    int ans = 0;
+    int ans = n;
     int low = 0, high=n-1;
     while(low <= high){
         int mid = (low+high)/2;
-        if(arr[mid] > x){
+        if(arr[mid] > toSearch){
             ans = mid;
             high = mid-1;
         }else{
