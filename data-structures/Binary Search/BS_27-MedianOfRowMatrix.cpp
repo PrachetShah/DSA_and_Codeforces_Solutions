@@ -2,6 +2,7 @@
 
 using namespace std;
 
+// TC: O(log2(10^9)*n*log2(m))
 class Solution {
   private:
     int upperBound(vector<int> arr, int toSearch, int m){
