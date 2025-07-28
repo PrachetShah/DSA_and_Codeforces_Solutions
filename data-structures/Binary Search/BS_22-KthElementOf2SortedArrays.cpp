@@ -12,6 +12,8 @@ public:
             return KthElementOfSortedArrays(nums2, nums1, k);
         }
         int n = n1 + n2;
+
+        // low, and high will be diff because of greater k, and max values of high
         int low = max(k-n2, 0);
         int high = min(k, n1);
 
