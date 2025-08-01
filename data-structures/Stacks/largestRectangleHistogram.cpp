@@ -9,10 +9,13 @@ int largestRectangleOptimal(vector<int> &heights){
 
     for(int i=0; i<n; i++){
         while(!s.empty() && heights[s.top()] > heights[i]){
-            int temp = s.top();
+            int ele = s.top();
             s.pop();
-            int width = s.empty() ? i : i-s.top()-1;
-            ans = max(ans, heights[temp]*width);
+            int nse = i;
+            int pse = s.empty() ? -1 : s.top();
+            int width = nse-pse-1;
+            // int width = s.empty() ? i : i-s.top()-1;
+            ans = max(ans, heights[ele]*width);
         }
         s.push(i);
     }
