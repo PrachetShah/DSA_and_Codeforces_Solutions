@@ -41,6 +41,10 @@ This can be done usiong Binary Search with minDist = 1 (can also be taken  min o
 
 Using Binary Search, because of polarity, when we increrase low = mid+1, for changing conditions, 
 we get ans stored at high when loop breaks
+
+Further Optimation for Range can be
+    int low = 1;
+    int high = stalls[n-1]-stalls[0];
 */
 
 class Solution {
