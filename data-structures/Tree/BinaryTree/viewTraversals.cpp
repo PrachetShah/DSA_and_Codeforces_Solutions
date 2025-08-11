@@ -18,8 +18,8 @@ class Node{
 void traversalCode(Node* root){
     // node, [level ,hd]
     queue<pair<Node*, pair<int, int>>> q;
-    map<int, vector<int>> hdMap;
-    map<int, vector<int>> levelMap;
+    unordered_map<int, vector<int>> hdMap;
+    unordered_map<int, vector<int>> levelMap;
     q.push(make_pair(root, make_pair(0, 0)));
 
     while(!q.empty()){
