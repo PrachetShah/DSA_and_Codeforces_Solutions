@@ -23,7 +23,9 @@ int largestRectangleOptimal(vector<int> &heights){
     while(!s.empty()){
         int temp = s.top();
         s.pop();
-        int width = s.empty() ? n : n-s.top()-1;
+        int nse = n;
+        int pse = s.empty() ? -1 : s.top();
+        int width = nse-pse-1;
         ans = max(ans, heights[temp]*width);
     }
     return ans;
