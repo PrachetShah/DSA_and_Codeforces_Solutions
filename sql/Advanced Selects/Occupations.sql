@@ -1,0 +1,13 @@
+SELECT
+    MAX(CASE WHEN OCCUPATION='Doctor' THEN Name END) AS doctor,
+    MAX(CASE WHEN OCCUPATION='Professor' THEN Name END) AS professor,
+    MAX(CASE WHEN OCCUPATION='Singer' THEN Name END) AS singer,
+    MAX(CASE WHEN OCCUPATION='Actor' THEN Name END) AS actor
+FROM (SELECT 
+        Name, 
+        Occupation,
+        ROW_NUMBER() OVER (PARTITION BY OCCUPATION ORDER BY NAME) AS rn
+      FROM OCCUPATIONS
+) AS t
+GROUP BY rn
+ORDER BY rn;
