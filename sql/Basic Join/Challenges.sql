@@ -7,9 +7,10 @@ WITH cte AS(
 SELECT id, name, counter
 FROM cte
 WHERE
-counter=(SELECT max(counter) FROM cte) /*select user that has max count submission*/
-OR
-counter IN (SELECT counter FROM cte
-GROUP BY counter
-HAVING COUNT(counter)=1 ) /*filter out the submission count which is unique*/
+    counter=(SELECT max(counter) FROM cte) /*select user that has max count submission*/
+    OR
+    counter IN (SELECT counter FROM cte
+                GROUP BY counter
+                HAVING COUNT(counter)=1 
+    ) /*filter out the submission count which is unique*/
 ORDER BY counter DESC, id
