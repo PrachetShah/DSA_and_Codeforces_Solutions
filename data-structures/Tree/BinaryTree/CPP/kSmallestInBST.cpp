@@ -12,8 +12,8 @@ class Node{
     Node* left;
     Node* right;
 
-    Node(int data_){
-        data = data_;
+    Node(int _data){
+        data = _data;
     }
 };
 
