@@ -1,5 +1,6 @@
 /*
 In BST, L<N<R
+Inorder of BST is always the Sorted Array
 So inorder traversal would give the sorted array by default in it
 */
 #include<bits/stdc++.h>
