@@ -33,7 +33,7 @@ int findCheapestPriceBFS( int n, vector<vector<int>>& flights, int src, int dst,
 	while( !q.empty() && K-- >= 0 ) {
 		int size = q.size();
 		for( int i = 0; i < size; i++ ) {
-			auto curr = q.front(); q.pop();         
+			auto curr = q.front(); q.pop();
 			for( auto nbr : adjList[curr.first] ) {
 				if( srcToTgtDist < curr.second + nbr.second ) continue;
 
